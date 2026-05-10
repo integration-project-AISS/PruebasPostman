@@ -1,9 +1,10 @@
 {
   "info": {
-    "_postman_id": "1dea5b60-3719-42f9-a06c-82d5a20af0b1",
+    "_postman_id": "90624d2d-52ab-4c5d-900c-54ed8926686d",
     "name": "VideoMiner_BasicCollection",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "53230462"
+    "_exporter_id": "54102130",
+    "_collection_link": "https://go.postman.co/collection/54102130-90624d2d-52ab-4c5d-900c-54ed8926686d?source=collection_link"
   },
   "item": [
     {
@@ -97,94 +98,6 @@
     },
     {
       "name": "Get channel",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
-              "\r",
-              "var jsonData = pm.response.json();\r",
-              "\r",
-              "pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.include(\"80\"); })"
-            ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/videominer/channels/:id",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "videominer",
-            "channels",
-            ":id"
-          ],
-          "variable": [
-            {
-              "key": "id",
-              "value": "80"
-            }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Put channel",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
-              "\r",
-              "var jsonData = pm.response.json();\r",
-              "\r",
-              "pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.include(\"80\"); })"
-            ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/videominer/channels/:id",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "videominer",
-            "channels",
-            ":id"
-          ],
-          "variable": [
-            {
-              "key": "id",
-              "value": "80"
-            }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Put channel Copy",
       "event": [
         {
           "listen": "test",
@@ -461,6 +374,69 @@
             {
               "key": "id",
               "value": "3956"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Put channel",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": \"80\",\r\n    \"name\": \"TV Editada - Actualizado\",\r\n    \"description\": \"Este canal ha sido modificado mediante una petición PUT\",\r\n    \"createdTime\": \"2023-01-01T23:36:17.306Z\",\r\n    \"videos\": [\r\n        {\r\n            \"id\": \"21856\",\r\n            \"name\": \"Alien: Isolation - Versión Actualizada\",\r\n            \"description\": \"Descripción editada para la prueba de integración.\",\r\n            \"releaseTime\": \"2023-01-09T22:32:41.126Z\",\r\n            \"user\": {\r\n                \"id\": \"9\",\r\n                \"name\": \"stux\",\r\n                \"user_link\": \"https://peertube.tv/accounts/stux\",\r\n                \"picture_link\": \"https://peertube.tv/lazy-static/avatars/f8463b3f-2e2e-4f36-8bd3-fa9c0ef4f463.png\"\r\n            },\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"3955\",\r\n                    \"text\": \"Comentario editado por el usuario\",\r\n                    \"createdOn\": \"2023-01-03T23:45:40.196Z\"\r\n                }\r\n            ],\r\n            \"captions\": [\r\n                {\r\n                    \"id\": \"1\",\r\n                    \"name\": \"Spanish Subtitles v2\",\r\n                    \"language\": \"Spanish\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/channels/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "channels",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "80"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete channel",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/channels/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "channels",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "80"
             }
           ]
         }
